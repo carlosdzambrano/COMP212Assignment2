@@ -1,0 +1,95 @@
+﻿<Window x:Class="Assignment2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="426.488" Width="525">
+    <Grid x:Name="orderList">
+        <Label Content="Starter" HorizontalAlignment="Left" Margin="11,47,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="starterCombo" HorizontalAlignment="Left" Margin="11,73,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Combo}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Content="Main Course" HorizontalAlignment="Left" Margin="136,47,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="mainCombo" HorizontalAlignment="Left" Margin="136,73,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Combo}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Content="Beverages" HorizontalAlignment="Left" Margin="261,47,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="beverageCombo" HorizontalAlignment="Left" Margin="261,73,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Combo}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Content="Dessert" HorizontalAlignment="Left" Margin="388,47,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="dessertCombo" HorizontalAlignment="Left" Margin="388,73,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Combo}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="11,100,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+        <DataGrid Name="orderDg" AutoGenerateColumns="False" ItemsSource="{Binding order}" SelectionMode="Single" HorizontalAlignment="Left" Height="169" Margin="11,127,0,0" VerticalAlignment="Top" Width="497" CellEditEnding="orderDg_CellEditEnding" BeginningEdit="orderDg_BeginningEdit">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+            <!--<DataGrid.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBox Text="{Binding Quantity}"/>
+                        <TextBox Text="{Binding Name}"/>
+                        <TextBox Text="{Binding Price}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </DataGrid.ItemTemplate>-->
+            <!--<DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Combo}"/>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>-->
+        </DataGrid>
+        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="91,301,0,0" VerticalAlignment="Top" Width="75" Click="btnClear_Click"/>
+
+        <Label Content="Subtotal: " HorizontalAlignment="Left" Margin="388,301,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="subTxtB" HorizontalAlignment="Left" Margin="447,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" />
+        
+        <Label Content="Tax: " HorizontalAlignment="Left" Margin="388,327,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="taxTB" HorizontalAlignment="Left" Margin="447,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        
+        <Label Content="Total: " HorizontalAlignment="Left" Margin="388,353,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="totalTxtB" HorizontalAlignment="Left" Margin="447,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <StatusBar HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="1000">
+            <StatusBarItem>
+                <Label Content="Carlos Zambrano"/>
+            </StatusBarItem>
+            <Button x:Name="btnStatus" Click="btnStatus_Click">
+                <Image Source=".\cc.png"/>
+            </Button>
+        </StatusBar>
+        <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="11,301,0,0" VerticalAlignment="Top" Width="75" Click="btnRemove_Click"/>
+        <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="10,358,0,0" VerticalAlignment="Top" Width="75" Click="btnClose_Click"/>
+
+
+
+
+
+    </Grid>
+</Window>
